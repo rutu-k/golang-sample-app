@@ -16,7 +16,6 @@ jobs:
     - name: Set up kubeconfig
       run: |
         echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-        kubectl config set-cluster my-cluster --server=${{ secrets.KUBE_API_SERVER_URL }}
 
     - name: Install kubectl
       run: sudo apt-get install -y kubectl
@@ -24,4 +23,3 @@ jobs:
     - name: Run kubectl commands
       run: |
         kubectl get nodes
-        kubectl apply -f k8s/deployment.yaml
