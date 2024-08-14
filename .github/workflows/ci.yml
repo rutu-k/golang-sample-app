@@ -15,16 +15,17 @@ jobs:
 
     - name: Set up k3d
       run: |
+        curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
         k3d --version
 
     - name: Create k3d cluster
       run: |
         # Create k3d cluster
-        k3d cluster create my-cluster
+        k3d cluster create my-cluster1
 
         # Write kubeconfig to the default location
-        k3d kubeconfig write my-cluster
+        k3d kubeconfig write my-cluster1
 
         # Debug: Check kubeconfig file content
         cat $HOME/.kube/config
