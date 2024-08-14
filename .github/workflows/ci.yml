@@ -19,7 +19,11 @@ jobs:
 
         k3d cluster create my-cluster
 
-        echo "$(k3d kubeconfig write my-cluster)" > $HOME/.kube/config
+        k3d kubeconfig write my-cluster > $HOME/.kube/config
+
+        # Debug: Check kubeconfig file content
+        cat $HOME/.kube/config
+        kubectl config view
 
     - name: Install kubectl
       run: sudo apt-get install -y kubectl
