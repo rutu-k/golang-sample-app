@@ -15,11 +15,7 @@ jobs:
 
     - name: Set up k3d
       run: |
-        #curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
-       # k3d cluster create my-cluster
-
-         # Verify installation
         k3d --version
 
     - name: Create k3d cluster
