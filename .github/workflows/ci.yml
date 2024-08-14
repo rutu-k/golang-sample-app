@@ -42,3 +42,9 @@ jobs:
 
     - name: Build
       uses: werf/actions/build@v2
+
+    - name: Run
+      uses: werf/actions/run@v2
+      with:
+        image: app-test1
+        args: go test -v
