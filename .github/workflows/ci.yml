@@ -15,13 +15,10 @@ jobs:
 
     - name: Set up k3d
       run: |
-        # Install k3d
         curl -s https://raw.githubusercontent.com/k3s-io/k3d/main/install.sh | bash
 
-        # Create k3d cluster
         k3d cluster create my-cluster
 
-        # Update KUBECONFIG to point to the new cluster
         echo "$(k3d kubeconfig write my-cluster)" > $HOME/.kube/config
 
     - name: Install kubectl
