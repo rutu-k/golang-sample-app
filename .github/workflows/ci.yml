@@ -19,7 +19,16 @@ jobs:
 
         k3d cluster create my-cluster
 
-        k3d kubeconfig write my-cluster > $HOME/.kube/config
+         # Verify installation
+        k3d --version
+
+    - name: Create k3d cluster
+      run: |
+        # Create k3d cluster
+        k3d cluster create my-cluster
+
+        # Write kubeconfig to the default location
+        k3d kubeconfig write my-cluster
 
         # Debug: Check kubeconfig file content
         cat $HOME/.kube/config
